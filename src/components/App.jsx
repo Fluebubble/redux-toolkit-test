@@ -1,16 +1,16 @@
+// import { Home } from 'pages/Home';
+import { LoginPage, Dashboard, Home } from 'pages';
+import { Route, Routes } from 'react-router-dom';
+import { Layout } from './Layout/Layout';
+
 export const App = () => {
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      React homework template
-    </div>
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route path="home" element={<Home />} />
+        <Route path="dashboard" element={<Dashboard />} />
+        <Route path="login" element={<LoginPage />} />
+      </Route>
+    </Routes>
   );
 };
