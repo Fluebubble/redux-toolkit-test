@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 
 export const AppBar = () => {
-  const isLoggedIn = useSelector(state => state.isLoggedIn);
+  const isLoggedIn = useSelector(state => state.user.isLoggedIn);
   return (
     <header
       style={{
@@ -16,7 +16,7 @@ export const AppBar = () => {
     >
       <div style={{ display: 'flex', gap: 5 }}>
         <NavLink to="home">Home</NavLink>
-        <NavLink to="login">Login</NavLink>
+        {!isLoggedIn && <NavLink to="login">Login</NavLink>}
         <NavLink to="dashboard">Dashboard</NavLink>
       </div>
       {isLoggedIn && <UserMenu />}

@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 export const useLogoutRedirect = () => {
-  const isLoggedIn = useSelector(state => state.isLoggedIn);
+  const isLoggedIn = useSelector(state => state.user.isLoggedIn);
   const navigate = useNavigate();
 
   useEffect(() => {

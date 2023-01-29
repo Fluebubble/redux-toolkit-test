@@ -1,4 +1,7 @@
-const { createSlice } = require('@reduxjs/toolkit');
+import storage from 'redux-persist/lib/storage';
+import { persistStore, persistReducer } from 'redux-persist';
+import { createSlice } from '@reduxjs/toolkit';
+
 
 export const userSlice = createSlice({
   name: 'user',
@@ -17,5 +20,10 @@ export const userSlice = createSlice({
     },
   },
 });
+
+export const persistedUserReducer = persistReducer(
+  { key: 'user', storage },
+  userSlice.reducer
+);
 
 export const { logIn, logOut } = userSlice.actions;
